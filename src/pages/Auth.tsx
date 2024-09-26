@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import sweat from '../../public/img/christmas.jpeg'
 
 function Auth(){
     const correct = "SecretSanta2024"
@@ -19,8 +20,8 @@ function Auth(){
         }
       };
       return (
-        <div className="flex items-center justify-center h-screen bg-lightgreen">
-          <form onSubmit={handleSubmit} className="flex flex-col justify-between bg-lightred h-[30vh] w-[80vw] md:h-[33vh] md:w-[33vw] p-2 md:p-6 rounded shadow-md">
+        <div className="flex items-center justify-center h-screen bg-green">
+          <form onSubmit={handleSubmit} className="flex flex-col justify-between bg-red h-[30vh] w-[80vw] md:h-[33vh] md:w-[33vw] p-2 md:p-6 rounded shadow-md">
             <h2 className="text-sm md:text-lg font-semibold mb-4">Enter the Super Secret Password</h2>
             <input
               type="password"
@@ -31,7 +32,7 @@ function Auth(){
             />
             <button
               type="submit"
-              className="bg-lightred px-4 py-2 rounded hover:bg-red"
+              className="bg-red px-4 py-2 rounded hover:bg-lightred"
             >
               Submit
             </button>
