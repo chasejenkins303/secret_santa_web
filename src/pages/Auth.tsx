@@ -21,7 +21,7 @@ function Auth(){
       return (
         <div className="flex items-center justify-center h-screen bg-green">
           <form onSubmit={handleSubmit} className="flex flex-col justify-between bg-red h-[30vh] w-[80vw] md:h-[33vh] md:w-[33vw] p-2 md:p-6 rounded shadow-md">
-            <h2 className="text-sm md:text-lg font-semibold mb-4">Enter the Super Secret Password</h2>
+            <h2 className="text-sm md:text-lg text-white font-semibold mb-4">Enter the Super Secret Password</h2>
             <input
               type="password"
               value={password}
@@ -31,7 +31,7 @@ function Auth(){
             />
             <button
               type="submit"
-              className="bg-red px-4 py-2 rounded hover:bg-lightred"
+              className="bg-red px-4 py-2 rounded text-white hover:bg-lightred hover:text-black"
             >
               Submit
             </button>
