@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import sweat from '../../public/img/christmas.jpeg'
 
 function Auth(){
     const correct = "SecretSanta2024"
