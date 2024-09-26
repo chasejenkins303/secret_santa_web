@@ -13,13 +13,13 @@ function Main(){
         'JG.txt',
       ];
     return (
-        <div className="flex flex-col items-center justify-center h-screen bg-lightgreen">
+        <div className="flex flex-col items-center justify-center h-screen bg-green">
           <h1 className="text-2xl font-bold mb-6">Download Text Files</h1>
           <div className="flex flex-col space-y-4">
             {files.map((file) => (
                <div key={file} className="flex space-x-4">
                <a
-                 href={`/files/${file}`} // Link to view the file
+                 href={`${process.env.PUBLIC_URL}/files/${file}`} // Link to view the file
                  target="_blank" // Opens the file in a new tab
                  rel="noopener noreferrer"
                  className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 text-center"

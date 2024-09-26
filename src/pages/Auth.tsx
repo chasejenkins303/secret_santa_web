@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Auth(){
-    const correct = "SecretSanta2024"
+    const correct = "a"
     const navigate = useNavigate();
     const [password, setPassword] = useState('');
 
