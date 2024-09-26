@@ -20,8 +20,8 @@ function Auth(){
       };
       return (
         <div className="flex items-center justify-center h-screen bg-lightgreen">
-          <form onSubmit={handleSubmit} className="flex flex-col justify-between bg-lightred h-[33vh] w-[33vw] p-6 rounded shadow-md">
-            <h2 className="text-lg font-semibold mb-4">Enter the Super Secret Password</h2>
+          <form onSubmit={handleSubmit} className="flex flex-col justify-between bg-lightred h-[30vh] w-[80vw] md:h-[33vh] md:w-[33vw] p-2 md:p-6 rounded shadow-md">
+            <h2 className="text-sm md:text-lg font-semibold mb-4">Enter the Super Secret Password</h2>
             <input
               type="password"
               value={password}
