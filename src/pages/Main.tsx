@@ -1,3 +1,6 @@
+import Snow from "../components/Snow";
+import GiftBox from "../components/GiftBox";
+
 function Main(){
     const files = [
         'Chase.txt',
@@ -13,8 +16,9 @@ function Main(){
         'JG.txt',
       ];
     return (
-        <div className="flex flex-col items-center justify-center h-screen bg-green">
-          <h1 className="text-2xl font-bold mb-6">Download Text Files</h1>
+        <div className="flex flex-col items-center justify-center h-screen bg-green z-5">
+            <Snow/>
+          <h1 className="text-2xl font-bold mb-6 z-10 bg-red p-6 rounded-xl">Select your name</h1>
           <div className="flex flex-col space-y-4">
             {files.map((file) => (
                <div key={file} className="flex space-x-4">
@@ -34,6 +38,7 @@ function Main(){
                  Download {file}...
                </a>
              </div>
+            
             ))}
           </div>
         </div>
