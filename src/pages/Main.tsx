@@ -16,28 +16,31 @@ function Main(){
         'JG.txt',
       ];
     return (
-        <div className="flex flex-col items-center justify-center h-screen bg-green z-5">
-            <Snow/>
+        <div className="flex flex-col items-center justify-center h-full bg-green z-5">
           <h1 className="text-2xl text-white font-bold mb-6 z-10 bg-red p-6 rounded-xl">Select your name</h1>
           <div className="flex flex-col space-y-4">
             {files.map((file) => (
-               <div key={file} className="flex space-x-4">
-               <a
-                 href={`${process.env.PUBLIC_URL}/files/${file}`} // Link to view the file
-                 target="_blank" // Opens the file in a new tab
-                 rel="noopener noreferrer"
-                 className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 text-center"
-               >
-                 View {file}
-               </a>
-               <a
-                 href={`/files/${file}`} // Link to download the file
-                 download // This attribute will trigger the download
-                 className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 text-center"
-               >
-                 Download {file}...
-               </a>
-             </div>
+               <GiftBox text={file}/>
+
+
+            //    <div key={file} className="flex space-x-4">
+            //    <a
+            //      href={`${process.env.PUBLIC_URL}/files/${file}`} // Link to view the file
+            //      target="_blank" // Opens the file in a new tab
+            //      rel="noopener noreferrer"
+            //      className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 text-center"
+            //    >
+            //      View {file}
+            //    </a>
+            //    <a
+            //      href={`/files/${file}`} // Link to download the file
+            //      download // This attribute will trigger the download
+            //      className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 text-center"
+            //    >
+            //      Download {file}...
+            //    </a>
+            //  </div>
+
             
             ))}
           </div>

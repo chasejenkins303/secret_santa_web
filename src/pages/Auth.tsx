@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Snow from '../components/Snow';
+
 
 function Auth(){
     const correct = "a"
@@ -20,7 +22,7 @@ function Auth(){
       };
       return (
         <div className="flex items-center justify-center h-screen bg-green">
-          <form onSubmit={handleSubmit} className="flex flex-col justify-between bg-red h-[30vh] w-[80vw] md:h-[33vh] md:w-[33vw] p-2 md:p-6 rounded shadow-md">
+          <form onSubmit={handleSubmit} className="flex flex-col justify-between bg-red h-[30vh] w-[80vw] md:h-[33vh] md:w-[33vw] p-2 md:p-6 rounded shadow-md z-20">
             <h2 className="text-sm md:text-lg text-white font-semibold mb-4">Enter the Super Secret Password</h2>
             <input
               type="password"
