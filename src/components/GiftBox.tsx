@@ -5,12 +5,7 @@ function GiftBox(props: any){
             href={`${process.env.PUBLIC_URL}/files/${props.text}`} // Link to view the file
             target="_blank" // Opens the file in a new tab
             rel="noopener noreferrer"
-        >
-        
-        
-        
-        
-            
+        >    
             <div
             className="relative w-40 h-40 bg-red rounded-lg cursor-pointer shadow-xl transition-transform transform hover:scale-105 group"
             >
