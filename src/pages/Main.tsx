@@ -18,7 +18,7 @@ function Main(){
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-green z-5">
             <Snow/>
-          <h1 className="text-2xl font-bold mb-6 z-10 bg-red p-6 rounded-xl">Select your name</h1>
+          <h1 className="text-2xl text-white font-bold mb-6 z-10 bg-red p-6 rounded-xl">Select your name</h1>
           <div className="flex flex-col space-y-4">
             {files.map((file) => (
                <div key={file} className="flex space-x-4">
