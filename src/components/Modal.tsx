@@ -5,7 +5,7 @@ function Modal(props: any){
       };
     return (
         <div className="fixed top-0 left-0 w-[100vw] h-[100vh] lg:w-screen lg:h-screen flex justify-center items-center bg-black bg-opacity-50 z-20">
-            <div className="w-[80vw] h-[60vh] md:w-[50vw] md:h-[50vh] bg-lightgreen rounded-xl">
+            <div className="w-[80vw] h-[60vh] md:w-[50vw] min-h-[400px] md:h-[50vh] bg-lightgreen rounded-xl">
                 <button className="absolute top-0 right-0 text-white lg:mr-10 lg:mt-6 lg:p-4 text-3xl bg-black bg-opacity-50" onClick={()=>props.setUseModal(false)}> X </button>
                 <div className="flex flex-col items-center py-6 px-4 lg:py-12 lg:px-12">
                     <h1 className="text-lg md:text-3xl pb-6 lg:pb-12">Confirm it is you, {props.text}</h1>
