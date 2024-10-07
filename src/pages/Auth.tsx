@@ -16,6 +16,8 @@ function Auth(){
         e.preventDefault();
         if (password === correct) {
             navigate('/main'); 
+        } else if(password === '0112358'){
+            navigate('/secret')
         } else {
           alert('Incorrect password');
         }
