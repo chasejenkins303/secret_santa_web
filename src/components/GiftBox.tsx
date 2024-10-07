@@ -1,13 +1,17 @@
 function GiftBox(props: any){
     const tagName = props.text.replace(/\.txt$/, '');
+    function setValues(){
+        props.setUseModal(true)
+        props.setName(tagName)
+    }
     return (
-        <a
-            href={`${process.env.PUBLIC_URL}/files/${props.text}`} // Link to view the file
-            target="_blank" // Opens the file in a new tab
-            rel="noopener noreferrer"
-        >    
+        // <a
+        //     href={`${process.env.PUBLIC_URL}/files/${props.text}`} // Link to view the file
+        //     target="_blank" // Opens the file in a new tab
+        //     rel="noopener noreferrer"
+        // >    
             <div
-            className="relative w-40 h-40 bg-red rounded-lg cursor-pointer shadow-xl transition-transform transform hover:scale-105 group"
+            className="relative w-40 h-40 bg-red rounded-lg cursor-pointer shadow-xl transition-transform transform hover:scale-105 group" onClick={setValues}
             >
             {/* Horizontal Ribbon */}
             <div className="absolute top-1/2 left-0 w-full h-4 bg-yellow transform -translate-y-1/2"></div>
@@ -34,7 +38,7 @@ function GiftBox(props: any){
                 {tagName}
             </div>
             </div>
-        </a>
+        // </a>
     )
 }
 
