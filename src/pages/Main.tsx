@@ -22,7 +22,7 @@ function Main(){
       ];
     return (
         <>
-          <div className="hidden number_here"><p>0112358</p></div>
+          <div className="hidden sequence_here"><p>0,1,1,2,3,5,8,__ (What number comes next, enter that somewhere on this website to complete the puzzle)</p></div>
           <div className="flex flex-col items-center justify-center min-h-screen bg-green z-5">
             {useModal ? <Modal setUseModal={setUseModal} text={name}/> : <></>}
             <h1 className="text-2xl text-white font-bold mb-6 z-10 bg-red p-6 rounded-xl">Select your name</h1>
