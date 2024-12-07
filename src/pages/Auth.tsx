@@ -4,7 +4,7 @@ import Snow from '../components/Snow';
 
 
 function Auth(){
-    const correct = "a"
+    const correct = "Christmas2024"
     const navigate = useNavigate();
     const [password, setPassword] = useState('');
 
@@ -14,7 +14,7 @@ function Auth(){
     
       const handleSubmit = (e: any) => {
         e.preventDefault();
-        if (password === correct) {
+        if (password.toLowerCase() === correct.toLowerCase()) {
             navigate('/main'); 
         } else if(password === '13'){
             navigate('/secret')
