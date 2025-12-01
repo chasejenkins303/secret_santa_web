@@ -1,24 +1,89 @@
-function Modal(props: any){
-    const handleButtonClick = () => {
-        const fileURL = `${process.env.PUBLIC_URL}/files/${props.text}.txt`;
-        window.open(fileURL, '_blank'); // Open file in a new tab
-      };
+import { useEffect, useState } from "react";
+
+function Modal(props: any) {
+    const { text, setUseModal } = props;
+
+    const [assignedTo, setAssignedTo] = useState<string | null>(null);
+    const [revealed, setRevealed] = useState<boolean>(false);
+
+    // Load assignment when the modal opens
+    useEffect(() => {
+        async function loadAssignment() {
+            try {
+                const fileURL = `${process.env.PUBLIC_URL}/files/${text}.txt`;
+                const response = await fetch(fileURL);
+                const data = await response.text();
+
+                setAssignedTo(data.trim());
+            } catch (err) {
+                console.error("Error loading assignment:", err);
+                setAssignedTo("ERROR");
+            }
+        }
+
+        loadAssignment();
+    }, [text]);
+
+    const handleConfirm = () => {
+        setRevealed(true);
+    };
+
     return (
-        <div className="fixed top-0 left-0 w-[100vw] h-[100vh] lg:w-screen lg:h-screen flex justify-center items-center bg-black bg-opacity-50 z-20">
-            <div className="w-[80vw] h-[60vh] md:w-[50vw] min-h-[400px] md:h-[50vh] bg-lightgreen rounded-xl">
-                <button className="absolute top-0 right-0 text-white lg:mr-10 lg:mt-6 lg:p-4 text-3xl bg-black bg-opacity-50" onClick={()=>props.setUseModal(false)}> X </button>
-                <div className="flex flex-col items-center py-6 px-4 lg:py-12 lg:px-12">
-                    <h1 className="text-lg md:text-3xl pb-6 lg:pb-12">Confirm it is you, {props.text}</h1>
-                    <p className="text-sm md:text-lg">If you click confirm, you will see the person that {props.text} is assigned to get a gift for. If you are not {props.text} please click cancel so you don't spoil the surprise!</p>
-                    {props.text == 'Sherri' ? <p className="text-xs lg:text-lg lg:pt-4">(Hey Aunt Sherri, since I know you like puzzles, somewhere on this site is the start of a sequence. If you find that sequence, you can then enter the NEXT number of that sequence somewhere on this site to solve the puzzle. It is NOT in anyone elses gift box by the way.)</p> : <></>}
+        <div className="fixed top-0 left-0 w-screen h-screen flex justify-center items-center bg-black bg-opacity-60 backdrop-blur-sm z-50">
+            <div className="relative w-[85vw] max-w-lg rounded-2xl shadow-2xl border-4 border-gold p-6 md:p-10 bg-green"> 
+        
+                <button
+                    className="absolute top-3 right-3 text-white text-3xl font-bold hover:text-gold transition"
+                    onClick={() => setUseModal(false)}
+                >
+                    ✖
+                </button>
+
+                <h1 className="text-center text-2xl md:text-4xl font-bold text-gold pb-4 drop-shadow-md">
+                    🎅 Confirm it's you, {text}! 🎄
+                </h1>
+
+                <p className="text-center text-white text-sm md:text-lg pb-4">
+                    When you click confirm, your Secret Santa assignment will be revealed.
+                    If you are <b>not</b> {text}, please click Cancel so you don't ruin the surprise!
+                </p>
+
+                {/* Reveal box stays transparent — remove bg-opacity if you want this solid too */}
+                <div className="mt-6 bg-white/10 border-2 border-gold rounded-xl p-6 text-center shadow-inner">
+                    {assignedTo === null ? (
+                        <p className="text-white text-xl">Loading...</p>
+                    ) : (
+                        <>
+                            <p className="text-white text-md md:text-lg pb-2">
+                                <b>{text}</b>, you will be getting a gift for:
+                            </p>
+                            <p className="text-gold text-3xl md:text-5xl font-bold drop-shadow-lg">
+                                {revealed ? assignedTo : "???"}
+                            </p>
+                        </>
+                    )}
                 </div>
-                <div className="flex justify-center items-center gap-8 lg:gap-4">
-                    <button className="p-4 lg:py-6 lg:px-12 bg-red rounded-xl text-xl text-white" onClick={()=>props.setUseModal(false)}>Cancel</button>
-                    <button className="p-4 lg:py-6 lg:px-12 bg-green rounded-xl text-xl text-white" onClick={handleButtonClick}>Confirm</button>
+
+                <div className="flex justify-center items-center gap-6 mt-8">
+                    <button
+                        className="p-3 md:p-4 bg-red-600 hover:bg-red-500 text-white rounded-xl text-lg shadow-lg transition"
+                        onClick={() => setUseModal(false)}
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        className="p-3 md:p-4 bg-green-600 hover:bg-green-500 text-white rounded-xl text-lg shadow-lg transition"
+                        onClick={() => handleConfirm()}
+                        disabled={assignedTo === null}
+                    >
+                        Confirm
+                    </button>
                 </div>
             </div>
         </div>
-    )
+
+    );
 }
 
-export default Modal
+export default Modal;

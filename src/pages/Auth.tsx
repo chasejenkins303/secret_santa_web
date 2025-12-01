@@ -4,7 +4,7 @@ import Snow from '../components/Snow';
 
 
 function Auth(){
-    const correct = "Christmas2024"
+    const correct = "Christmas2025"
     const navigate = useNavigate();
     const [password, setPassword] = useState('');
 
