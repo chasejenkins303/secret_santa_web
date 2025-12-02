@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Snow from './components/Snow';
 import Auth from './pages/Auth'

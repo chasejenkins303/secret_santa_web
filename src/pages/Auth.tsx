@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Snow from '../components/Snow';
-
 
 function Auth(){
     const correct = "Christmas2025"

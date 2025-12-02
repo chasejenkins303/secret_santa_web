@@ -1,4 +1,3 @@
-import Snow from "../components/Snow";
 import GiftBox from "../components/GiftBox";
 import { useState } from "react";
 import Modal from "../components/Modal";
