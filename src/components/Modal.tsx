@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import WordleInput from "./WordleInput";
-import BlinkingLights from "./BlinkingLights";
 
 function Modal(props: any) {
   const { text, setUseModal } = props;
@@ -33,9 +32,6 @@ function Modal(props: any) {
   return (
     <div className="fixed top-0 left-0 w-screen h-screen flex justify-center items-center bg-black bg-opacity-60 backdrop-blur-sm z-50">
       <div className="relative w-[85vw] max-w-lg rounded-2xl shadow-2xl border-4 border-gold p-6 md:p-10 bg-green">
-        <div className="flex justify-center mb-4">
-            <BlinkingLights sequence={[12, 9, 7, 8, 20, 19]} speed={1500}/>
-        </div>
         <button
           className="absolute top-3 right-3 text-white text-3xl font-bold hover:text-gold transition"
           onClick={() => setUseModal(false)}
@@ -44,7 +40,7 @@ function Modal(props: any) {
         </button>
 
         <h1 className="text-center text-2xl md:text-4xl font-bold text-gold pb-4 drop-shadow-md">
-          🎅 Confirm it's you, {text}! 🎄
+          Confirm it's you, {text}!
         </h1>
 
         <p className="text-center text-white text-sm md:text-lg pb-4">
@@ -84,17 +80,17 @@ function Modal(props: any) {
             Confirm
           </button>
         </div>
-        <div>
+        {text==="Sherri" && <div>
           <WordleInput
             solution="LIGHT"
             onSolved={() => setShowNextHint(true)}
           />
           {showNextHint && (
             <p className="text-center text-gold mt-4">
-              🎁 Great job! Go to <b>/lights</b> for your next clue!
+              Great job! To get to the next step, you must replace the main light
             </p>
           )}
-        </div>
+        </div>}
       </div>
     </div>
   );

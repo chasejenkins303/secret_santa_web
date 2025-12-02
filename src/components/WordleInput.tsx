@@ -65,7 +65,7 @@ export default function WordleInput({ solution, onSolved }: WordleProps) {
                 maxLength={length}
                 onChange={(e) => setGuess(e.target.value)}
                 className="border p-2 rounded w-40 text-center uppercase"
-                placeholder={`Enter ${length}-letter word`}
+                placeholder={`Enter Guess`}
             />
 
             <button
